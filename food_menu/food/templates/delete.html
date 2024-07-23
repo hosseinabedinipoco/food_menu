@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block body %}
 
-<form action="" method="post">
+<form action="" method="post" style="margin-bottom: 20px;">
     {% csrf_token %}
-<h2>Are you sure to delete {{ food.name }}</h2>
-<button type="submit">Confirm</button>
+    <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #333;">Are you sure to delete {{ food.name }}</h2>
+        <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">Confirm</button>
+    </div>
 </form>
+
 {% endblock %}
