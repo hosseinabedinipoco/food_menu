@@ -8,7 +8,26 @@
 </head>
 <body>
     {% block body %}
-    <h1>Heloooo</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Our Food Items</h1>
+        <div class="row">
+            {% for food in foods %}
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img class="card-img-top" src="{{ food.image.url }}" alt="{{ food.name }}" height="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ food.name }}</h5>
+                        <p class="card-text">Price: ${{ food.price }}</p>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary mr-2">Update</button>
+                            <button type="button" class="btn btn-secondary">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>
