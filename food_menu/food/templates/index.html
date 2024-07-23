@@ -19,8 +19,8 @@
                         <h5 class="card-title">{{ food.name }}</h5>
                         <p class="card-text">Price: ${{ food.price }}</p>
                         <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary mr-2">Update</button>
-                            <button type="button" class="btn btn-secondary">Delete</button>
+                            <a class="btn btn-primary mr-2">Update</a>
+                            <a href="{% url 'food:delete'  food.id  %}" class="btn btn-secondary">Delete</a>
                         </div>
                     </div>
                 </div>
