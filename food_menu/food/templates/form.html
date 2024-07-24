@@ -6,14 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     {% block body %}
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}    
-    {{ form }}
-    <button type="submit">submit</button>
-</form>
+
+    <div class="d-flex align-items-center justify-content-center vh-100" style="background-image: url('path_to_your_image.jpg'); background-size: cover;">
+        <form method="post" enctype="multipart/form-data" class="bg-white p-5 rounded shadow">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form }}
+                {% if form.errors %}
+                    <div class="text-danger small">
+                        {% for error in form.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <!-- Repeat for each field in your form -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
 {% endblock %}
 </body>
 </html>

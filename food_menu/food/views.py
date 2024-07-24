@@ -29,7 +29,8 @@ def add(request):
         if form.is_valid():
             form.save()
             return redirect("food:index")
-    form = FoodForm()   
+    else:    
+        form = FoodForm()   
     template = loader.get_template("form.html")
     context = {
         'form':form
@@ -43,8 +44,8 @@ def update(request, id):
         if form.is_valid():
             form.save()
             return redirect('food:index')
-        
-    form = FoodForm(instance=food)
+    else:    
+        form = FoodForm(instance=food)
     template = loader.get_template("form.html")
     context = {
         'form':form
