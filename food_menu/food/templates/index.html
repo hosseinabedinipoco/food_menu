@@ -14,12 +14,12 @@
             {% for food in foods %}
             <div class="col-md-4">
                 <div class="card shadow-sm">
-                    <img class="card-img-top" src="{{ food.image.url }}" alt="{{ food.name }}" height="300px">
+                    <img src="{{ food.image.url }}" alt="{{ food.name }}" height="250px"/>
                     <div class="card-body">
                         <h5 class="card-title">{{ food.name }}</h5>
                         <p class="card-text">Price: ${{ food.price }}</p>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary mr-2">Update</a>
+                            <a class="btn btn-primary mr-2" href="{% url 'food:update' food.id %}">Update</a>
                             <a href="{% url 'food:delete'  food.id  %}" class="btn btn-secondary">Delete</a>
                         </div>
                     </div>
